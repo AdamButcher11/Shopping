@@ -220,6 +220,7 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
         categoryLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         downloadLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Download.png"))); // NOI18N
+        downloadLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         downloadLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 downloadLabelMouseReleased(evt);
@@ -240,10 +241,7 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(categoryLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(downloadLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(categoryLabel, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(home)
@@ -268,7 +266,8 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(minus, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(plus, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                                    .addComponent(plus, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(downloadLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -280,28 +279,26 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
                     .addComponent(balanceText))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(other)
-                            .addComponent(subscriptions)
-                            .addComponent(shopping)
-                            .addComponent(travel)
-                            .addComponent(entertainment)
-                            .addComponent(car)
-                            .addComponent(food)
-                            .addComponent(home))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                        .addComponent(categoryLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(downloadLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(other)
+                    .addComponent(subscriptions)
+                    .addComponent(shopping)
+                    .addComponent(travel)
+                    .addComponent(entertainment)
+                    .addComponent(car)
+                    .addComponent(food)
+                    .addComponent(home))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(categoryLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(downloadLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(plus)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(minus))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(minus)))
                 .addContainerGap())
         );
 
