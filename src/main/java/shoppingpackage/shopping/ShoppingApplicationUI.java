@@ -93,6 +93,10 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
         balanceText = new javax.swing.JLabel();
         categoryLabel = new javax.swing.JLabel();
         downloadLabel = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        aboutMenuItem = new javax.swing.JMenuItem();
+        exitMenuItem = new javax.swing.JMenuItem();
 
         jLabel1.setText("jLabel1");
 
@@ -227,6 +231,28 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
             }
         });
 
+        jMenu1.setText("Menü");
+
+        aboutMenuItem.setText("Névjegy");
+        aboutMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                aboutMenuItemMouseReleased(evt);
+            }
+        });
+        jMenu1.add(aboutMenuItem);
+
+        exitMenuItem.setText("Kilépés");
+        exitMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                exitMenuItemMouseReleased(evt);
+            }
+        });
+        jMenu1.add(exitMenuItem);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -287,7 +313,7 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
                     .addComponent(car)
                     .addComponent(food)
                     .addComponent(home))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(categoryLabel)
@@ -364,7 +390,7 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
 			resultLong = Long.parseLong(result);
 		} catch (NumberFormatException e) {
 			
-			JOptionPane.showConfirmDialog(this, "Számot adj meg kérlek");
+			JOptionPane.showConfirmDialog(this, "Kérlek számot adj meg!");
 		}
     	
     	List<Balance> allBalance = app.transactionService.getAllBalance();
@@ -412,7 +438,7 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
 			resultLong = Long.parseLong(result);
 		} catch (NumberFormatException e) {
 			
-			JOptionPane.showConfirmDialog(this, "Számot adj meg kérlek");
+			JOptionPane.showConfirmDialog(this, "Kérlek számot adj meg!");
 		}
     	
     	List<Balance> allBalance = app.transactionService.getAllBalance();
@@ -479,6 +505,18 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
     	
     }//GEN-LAST:event_downloadLabelMouseReleased
 
+    private void aboutMenuItemMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuItemMouseReleased
+        JOptionPane.showMessageDialog(null, "Alkalmazás: Shopping App\n\n"
+                + "Név: Mészáros Ádám\n"
+                + "Neptun kód: OUNAQC", 
+                "Alkalmazás névjegye", 
+                JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_aboutMenuItemMouseReleased
+
+    private void exitMenuItemMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMenuItemMouseReleased
+        System.exit(0);
+    }//GEN-LAST:event_exitMenuItemMouseReleased
+
     
     public String convertToCSV(String[] data) {
         return Stream.of(data)
@@ -513,13 +551,14 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
     
 			try {
 				List<Transactions> list = app.transactionService.getTransactionsById( id );
-				if(list.size() == 0)
-					jScrollPane1.setVisible(false);
-				else
-					 jScrollPane1.setVisible(true);
-				
+//				if(list.size() == 0)
+//					jScrollPane1.setVisible(false);
+//				else
+//					 jScrollPane1.setVisible(true);
+				jScrollPane1.setVisible(true);
 				categoryTable.setModel(tableInit(list));
-				
+				//categoryTable.getRowSorter().toggleSortOrder(0);
+                                categoryTable.setAutoCreateRowSorter(true);
 			} catch (NullPointerException e) {
 				
 			}
@@ -607,6 +646,7 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JLabel balanceLabel;
     private javax.swing.JLabel balanceText;
     private javax.swing.JLabel car;
@@ -614,9 +654,12 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
     private javax.swing.JTable categoryTable;
     private javax.swing.JLabel downloadLabel;
     private javax.swing.JLabel entertainment;
+    private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JLabel food;
     private javax.swing.JLabel home;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel minus;
     private javax.swing.JLabel other;
