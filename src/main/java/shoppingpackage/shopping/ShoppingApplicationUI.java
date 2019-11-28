@@ -414,7 +414,7 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
     	
     	String resultCategory = (String)JOptionPane.showInputDialog(
                 this,
-                "Kérlek válassz kategóriát", 
+                "Kérlek válassz kategóriát!", 
                 "Kategóriák",            
                 JOptionPane.PLAIN_MESSAGE,
                 null,            
@@ -424,7 +424,7 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
     	
     	String result = (String)JOptionPane.showInputDialog(
                 this,
-                "Add meg az összeget", 
+                "Add meg az összeget!", 
                 "Összeg megadása",            
                 JOptionPane.PLAIN_MESSAGE,
                 null,            
@@ -454,7 +454,7 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
     	
     	String resultDescription = (String)JOptionPane.showInputDialog(
                 this,
-                "Kérlek írj megjegyzést(nem kötelező)!", 
+                "Kérlek írj megjegyzést! (nem kötelező)", 
                 "Megjegyzés",            
                 JOptionPane.PLAIN_MESSAGE,
                 null,            
@@ -492,7 +492,7 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
     List<Transactions> allTransaction = app.transactionService.getAllTransactions();
     
     for (Transactions item : allTransaction) {
-			dataLines.add(new String[] {item.getCategory().toString(), ((Long)item.getAmount()).toString() , item.getDescription(), item.getDate().toString()    } );
+			dataLines.add(new String[] {item.getCategory().toString(), ((Long)item.getAmount()).toString() , item.getDescription(), item.getDate().format(DateTimeFormatter.ofPattern("yyyy.MM.dd hh:mm")).toString()    } );
     	
 	}
     	
