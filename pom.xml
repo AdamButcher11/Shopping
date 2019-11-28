@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>shoppingpackage</groupId>
 	<artifactId>shopping</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>shopping</name>
-	<description>Demo project for Spring Boot</description>
+	<version>1.0</version>
+	<name>ShoppingApplication</name>
+	<description>Költségvetés kezelésére szolgáló alkalmazás</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -68,6 +68,19 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-jar-plugin</artifactId>
+                            <version>2.4</version>
+                            <configuration>
+                                <archive>
+                                    <manifest>
+                                        <addClasspath>true</addClasspath>
+                                        <mainClass>shoppingpackage.shopping.ShoppingApplicationUI</mainClass>
+                                    </manifest>
+                                </archive>
+                            </configuration>
+                        </plugin>
 		</plugins>
 	</build>
 

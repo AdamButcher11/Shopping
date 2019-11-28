@@ -524,7 +524,8 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
     }//GEN-LAST:event_downloadLabelMouseReleased
 
     private void aboutMenuItemMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuItemMouseReleased
-        JOptionPane.showMessageDialog(null, "Alkalmazás: Shopping App\n\n"
+        JOptionPane.showMessageDialog(null, "Alkalmazás: Shopping Application\n"
+                + "Verzió: 1.0\n\n"
                 + "Név: Mészáros Ádám\n"
                 + "Neptun kód: OUNAQC", 
                 "Alkalmazás névjegye", 
