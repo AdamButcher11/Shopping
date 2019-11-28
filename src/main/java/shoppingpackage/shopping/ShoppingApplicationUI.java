@@ -313,7 +313,7 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
                     .addComponent(car)
                     .addComponent(food)
                     .addComponent(home))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(categoryLabel)
@@ -325,7 +325,7 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
                         .addComponent(plus)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(minus)))
-                .addContainerGap())
+                .addGap(11, 11, 11))
         );
 
         pack();
@@ -487,12 +487,30 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
     	
     }//GEN-LAST:event_minusMouseReleased
 
+    private String categoryDictionary(String category) {
+        
+        String categoryTranslation = "";
+        switch(category) {
+            case "HOME": categoryTranslation = "Háztartás"; break;
+            case "CAR": categoryTranslation = "Autó/Motor"; break;
+            case "FOOD": categoryTranslation = "Étel"; break;
+            case "ENTERTAINMENT": categoryTranslation = "Szórakozás"; break;
+            case "TRAVEL": categoryTranslation = "Utazás"; break;
+            case "SHOPPING": categoryTranslation = "Bevásárlás"; break;
+            case "SUBSCRIPTIONS": categoryTranslation = "Előfizetések"; break;
+            case "OTHER": categoryTranslation = "Egyéb"; break;
+            default: categoryTranslation = category; break;
+        }
+        
+        return categoryTranslation;
+    }
+    
     private void downloadLabelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_downloadLabelMouseReleased
     	List<String[]> dataLines = new ArrayList<>();    	
     List<Transactions> allTransaction = app.transactionService.getAllTransactions();
-    
+    dataLines.add(new String[] {"Kategória", "Összeg", "Leírás", "Időpont"});
     for (Transactions item : allTransaction) {
-			dataLines.add(new String[] {item.getCategory().toString(), ((Long)item.getAmount()).toString() , item.getDescription(), item.getDate().format(DateTimeFormatter.ofPattern("yyyy.MM.dd hh:mm")).toString()    } );
+			dataLines.add(new String[] {categoryDictionary(item.getCategory().toString()), ((Long)item.getAmount()).toString() , item.getDescription(), item.getDate().format(DateTimeFormatter.ofPattern("yyyy.MM.dd hh:mm")).toString()    } );
     	
 	}
     	
