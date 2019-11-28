@@ -378,7 +378,7 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
     	
     	String result = (String)JOptionPane.showInputDialog(
                 this,
-                "Add meg az összeget", 
+                "Add meg az összeget!", 
                 "Összeg megadása",            
                 JOptionPane.PLAIN_MESSAGE,
                 null,            
@@ -465,14 +465,14 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
     	CategoryName name = null;
     	Category category = null;
     	switch (resultCategory) {
-    	case "Háztartás": category = app.transactionService.getCategoryById(new Long(1));  break;
-    	case"Autó/Motor":  category = app.transactionService.getCategoryById(new Long(7)); break;		
-    	case "Étel" :category = app.transactionService.getCategoryById(new Long(2));  break;
-    	case "Szórakozás":  category = app.transactionService.getCategoryById(new Long(3)); break;
-    	case "Utazás":   category = app.transactionService.getCategoryById(new Long(5)); break;
-    	case "Bevásárlás":  category = app.transactionService.getCategoryById(new Long(4)); break;
-    	case "Előfizetések": category = app.transactionService.getCategoryById(new Long(6)); break;
-    	case "Egyéb" :   category = app.transactionService.getCategoryById(new Long(8)); break;
+    	case "Háztartás" : category = app.transactionService.getCategoryById(new Long(1));  break;
+    	case"Autó/Motor" :  category = app.transactionService.getCategoryById(new Long(7)); break;		
+    	case "Étel" : category = app.transactionService.getCategoryById(new Long(2));  break;
+    	case "Szórakozás" : category = app.transactionService.getCategoryById(new Long(3)); break;
+    	case "Utazás" : category = app.transactionService.getCategoryById(new Long(5)); break;
+    	case "Bevásárlás" : category = app.transactionService.getCategoryById(new Long(4)); break;
+    	case "Előfizetések" : category = app.transactionService.getCategoryById(new Long(6)); break;
+    	case "Egyéb" : category = app.transactionService.getCategoryById(new Long(8)); break;
     	default:
 			break;
 		}
@@ -611,7 +611,7 @@ public class ShoppingApplicationUI extends javax.swing.JFrame {
             ++j;
             matrix[i][j] = item.getDescription();
             ++j;
-            matrix[i][j] =  item.getDate().toString();
+            matrix[i][j] =  item.getDate().format(DateTimeFormatter.ofPattern("yyyy.MM.dd hh:mm")).toString();
             j = 0;
             ++i;
         }
