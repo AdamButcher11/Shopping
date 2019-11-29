@@ -25,3 +25,14 @@ spring.jpa.hibernate.ddl-auto=update
 
 Jelenleg XAMPP szerveren futtatott MYSQL adatbázishoz van kapcsolva, de tetszőlegesen ez megváltoztatható. Beállítható az alapértelmezett adatbázisra is, ilyenkor vegyük ki a # komment jeleket a használni kívánt sorok elől és kommentezzük ki helyette a MYSQL kapcsolatot. A JAVA Spring keretrendszer az indításkor automatikusan létrehozza a táblákat és feltölti működéshez szükséges adatokkal.
 A spring.jpa.hibernate.ddl-auto=update parancs azt adja meg, hogy ha létezik az adatbázis, akkor ne csináljon új üres táblákat. 
+
+
+
+Alkalmazás beszerzése és indítása
+
+Az alkalmazás publikusan elérhető a GitHub felületén.
+https://github.com/AdamButcher11/Shopping
+Amennyiben korábban már telepítettünk git klienst a számítógépünkre, az alkalmazás letölthető parancssor segítségével:
+git clone https://github.com/AdamButcher11/Shopping.git
+
+A futtatáshoz importálhatjuk a programot Netbeans projektként, vagy lehetőségünk van a Shopping/target mappában található shopping-1.0.jar fájl futtatására.
